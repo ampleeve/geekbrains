@@ -1,3 +1,3 @@
 <?php
-echo "lesson number two"
+echo "lesson number one"
 ?>
