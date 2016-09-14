@@ -3,7 +3,7 @@
 
 echo 'С помощью оператора echo выведите на страницу целочисленную переменную';
 echo '<br>';
-$varInt = 3;
+$varInt = 10;
 echo $varInt;
 
 echo '<br>';
@@ -27,7 +27,7 @@ echo '<br>';
 echo 'С помощью оператора echo выведите на страницу строковую переменную';
 echo '<br>';
 // С помощью оператора echo выведите на страницу строковую переменную
-$varStr = 'Строка';
+$varStr = '20 приветов';
 echo $varStr;
 
 echo '<br>';
@@ -173,10 +173,14 @@ echo 'Попробуйте в выражении использовать раз
 echo '<br>';
 /*
 Попробуйте в выражении использовать разные типы данных, например, сложите число «10» и строку «20 приветов». Что получится? Объясните результат.
+
+Получилось 30, т.к. интерпретатор в начале строки нашел число и полностью его воспринял как число до не числового символа и добавил его к целочисленному значению
 */
 
 echo '<br>';
 echo '<br>';
+echo '<br>';
+echo 'Int + Str';
 echo '<br>';
 $varResult = $varInt + $varStr;
 echo $varResult;
@@ -184,20 +188,88 @@ echo $varResult;
 echo '<br>';
 echo '<br>';
 echo '<br>';
-$varResult = $varFloat + $varInt;
+echo 'Str + Int';
+echo '<br>';
+$varResult = $varStr + $varInt;
 echo $varResult;
 
 echo '<br>';
 echo '<br>';
 echo '<br>';
-$varResult = $varBool + $varInt;
+echo 'Int + Bool';
+echo '<br>';
+$varResult = $varInt + $varBool;
+echo $varResult;
+
+echo '<br>';
+echo '<br>';
+echo '<br>';
+echo 'Bool + Str';
+echo '<br>';
+$varResult = $varBool + $varStr;
+echo $varResult;
+
+echo '<br>';
+echo '<br>';
+echo '<br>';
+echo 'Str + Bool';
+echo '<br>';
+$varResult = $varStr + $varBool;
+echo $varResult;
+
+echo '<br>';
+echo '<br>';
+echo '<br>';
+echo 'Дайте ответ на вопрос, как работает оператор xor? В каких случаях он возвращает значение true, в каких – false? Для этого напишите скрипт, который выводит значения операций со всеми возможными вариантами операндов (4 варианта). Чему равно $a xor $a для любых значений $a?';
+echo '<br>';
+/*
+Дайте ответ на вопрос, как работает оператор xor? В каких случаях он возвращает значение true, в каких – false?
+
+Ответ: это логический оператор, он возвращает истину если оба операнда равны и ложь, если операнды не равны друг другу.
+
+Для этого напишите скрипт, который выводит значения операций со всеми возможными вариантами операндов (4 варианта). Чему равно $a xor $a для любых значений $a?
+*/
+
+echo '<br>';
+echo '<br>';
+echo '<br>';
+echo 'false xor false';
+echo '<br>';
+$varBool1 = false;
+$varBool2 = false;
+$varResult = $varBool1 xor $varBool2; 
 echo $varResult;
 
 
+echo '<br>';
+echo '<br>';
+echo '<br>';
+echo 'true xor false';
+echo '<br>';
+$varBool1 = true;
+$varBool2 = false;
+$varResult = $varBool1 xor $varBool2; 
+echo $varResult;
 
+echo '<br>';
+echo '<br>';
+echo '<br>';
+echo 'false xor true';
+echo '<br>';
+$varBool1 = false;
+$varBool2 = true;
+$varResult = $varBool1 xor $varBool2; 
+echo $varResult;
 
-
-
+echo '<br>';
+echo '<br>';
+echo '<br>';
+echo 'true xor true';
+echo '<br>';
+$varBool1 = true;
+$varBool2 = true;
+$varResult = $varBool1 xor $varBool2; 
+echo $varResult;
 
 
 
