@@ -89,10 +89,6 @@ echo '$varStr';
 echo '<br>';
 echo 'STATUS_ACTIVE';
 
-
-
-
-
 echo '<br>';
 echo '<br>';
 echo 'Выведите на экран любое четверостишие. 
@@ -234,7 +230,6 @@ $varBool2 = false;
 $varResult = ($varBool1 xor $varBool2); 
 echo $varResult;
 
-
 echo '<br>';
 echo '<br>';
 echo '<br>';
@@ -264,9 +259,6 @@ $varBool1 = true;
 $varBool2 = true;
 $varResult = ($varBool1 xor $varBool2); 
 echo $varResult;
-
-
-
 
 echo '<br>';
 echo '<br>';
