@@ -231,7 +231,7 @@ echo 'false xor false';
 echo '<br>';
 $varBool1 = false;
 $varBool2 = false;
-$varResult = $varBool1 xor $varBool2; 
+$varResult = ($varBool1 xor $varBool2); 
 echo $varResult;
 
 
@@ -242,7 +242,7 @@ echo 'true xor false';
 echo '<br>';
 $varBool1 = true;
 $varBool2 = false;
-$varResult = $varBool1 xor $varBool2; 
+$varResult = ($varBool1 xor $varBool2); 
 echo $varResult;
 
 echo '<br>';
@@ -252,7 +252,7 @@ echo 'false xor true';
 echo '<br>';
 $varBool1 = false;
 $varBool2 = true;
-$varResult = $varBool1 xor $varBool2; 
+$varResult = ($varBool1 xor $varBool2); 
 echo $varResult;
 
 echo '<br>';
@@ -262,7 +262,7 @@ echo 'true xor true';
 echo '<br>';
 $varBool1 = true;
 $varBool2 = true;
-$varResult = $varBool1 xor $varBool2; 
+$varResult = ($varBool1 xor $varBool2); 
 echo $varResult;
 
 
