@@ -1,4 +1,6 @@
 <?php
 
-echo "WAF"
+var_dump((bool)"");
+echo '<br>';
+var_dump((bool)"Привет");
 ?>
