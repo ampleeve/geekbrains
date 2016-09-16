@@ -1,6 +1,7 @@
 <?php
 echo 'С помощью оператора echo выведите на страницу целочисленную переменную';
 echo '<br>';
+echo 'test';
 $varInt = 10;
 echo $varInt;
 
