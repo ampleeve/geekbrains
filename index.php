@@ -92,3 +92,31 @@ echo '<br>'. mathOperation(5, 5, 1) . ': mathOperation(5, 5, \'+\')';
 echo '<br>'. mathOperation(5, 5, 2) . ': mathOperation(5, 5, \'-\')';
 echo '<br>'. mathOperation(5, 5, 3) . ': mathOperation(5, 5, \'*\')';
 echo '<br>'. mathOperation(5, 5, 4) . ': mathOperation(5, 5, \'/\')';
+
+/*
+ * С помощью рекурсии организуйте функцию возведения числа в степень.
+ * Формат: function power($val, $pow), где $val – заданное число, $pow – степень.
+ * */
+echo '<br>';
+echo '<br>';
+function power($val,$pow)
+{
+    if ($pow != 0)
+    {
+        return $val * power ($val, $pow - 1);
+    }
+    return 1;
+}
+echo power(2, 3);
+
+/*
+ * Напишите функцию, которая вычисляет текущее время и возвращает его в формате
+ *  с правильными склонениями, например:
+ * 22 часа 15 минут
+ * 21 час 43 минуты итд.
+ * Подсказка: часы и минуты можно узнать с помощью встроенной функции PHP – date.
+ * */
+
+echo '<br>';
+echo '<br>';
+echo date('G') . ':' . date('i');
