@@ -138,8 +138,6 @@ echo '<br>';
 
 function getTime(){
     return chti(date('G'),'час','часа','часов') . ' ' . chti(date('i'),'минута','минуты','минут');
-    //return chti(4,'час','часа','часов') . ' ' . chti(5,'минута','минуты','минут');
-
     }
 
 echo getTime();
