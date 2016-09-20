@@ -154,7 +154,3 @@ function getTime(){
     }
 
 echo getTime();
-
-echo '<br>';
-$rest = substr("00001", 0, -1);
-echo $rest;
