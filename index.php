@@ -63,6 +63,9 @@ function mult($a, $b){
     return $a * $b;
 }
 function div($a, $b){
+    if ($b == 0){
+        return false;
+    }
     return $a / $b;
 }
 
@@ -78,23 +81,23 @@ echo '<br>'. div(5, 5) . ': 5/5';
  *  (используйте функции из пункта 4) и верните полученное значение (используйте switch).
  * */
 
-function mathOperation($arg1, $arg2, $arg3){
-    switch($arg3) {
-        case 1:
+function mathOperation($arg1, $arg2, $operation){
+    switch($operation) {
+        case "+":
             return sum($arg1, $arg2);
-        case 2:
+        case "-":
             return diff($arg1, $arg2);
-        case 3:
+        case "*":
             return mult($arg1, $arg2);
-        case 4:
+        case "/":
             return div($arg1, $arg2);
     }
 }
 
-echo '<br>'. mathOperation(5, 5, 1) . ': mathOperation(5, 5, \'+\')';
-echo '<br>'. mathOperation(5, 5, 2) . ': mathOperation(5, 5, \'-\')';
-echo '<br>'. mathOperation(5, 5, 3) . ': mathOperation(5, 5, \'*\')';
-echo '<br>'. mathOperation(5, 5, 4) . ': mathOperation(5, 5, \'/\')';
+echo '<br>'. mathOperation(5, 5, "+") . ': mathOperation(5, 5, \'+\')';
+echo '<br>'. mathOperation(5, 5, "-") . ': mathOperation(5, 5, \'-\')';
+echo '<br>'. mathOperation(5, 5, "*") . ': mathOperation(5, 5, \'*\')';
+echo '<br>'. mathOperation(5, 5, "/") . ': mathOperation(5, 5, \'/\')';
 
 /*
  * С помощью рекурсии организуйте функцию возведения числа в степень.
@@ -104,13 +107,17 @@ echo '<br>';
 echo '<br>';
 function power($val,$pow)
 {
-    if ($pow != 0)
+    if ($pow != 0 && $pow > 0)
     {
         return $val * power ($val, $pow - 1);
     }
+    else if($pow != 0 && $pow < 0)
+    {
+        return power (1 / $val, - $pow);
+    }
     return 1;
 }
-echo power(2, 3);
+echo power(2, -1);
 
 /*
  * Напишите функцию, которая вычисляет текущее время и возвращает его в формате
@@ -120,6 +127,7 @@ echo power(2, 3);
  * Подсказка: часы и минуты можно узнать с помощью встроенной функции PHP – date.
  * */
 
+/*
 function chti($string, $ch1, $ch2, $ch3){  // ch1 - для слова "один" значение склонения, ch2 - для слова "три" склонение, ch3 - для слова "пять" склонение
     $ff=Array('0','1','2','3','4','5','6','7','8','9');
 
@@ -144,7 +152,7 @@ function chti($string, $ch1, $ch2, $ch3){  // ch1 - для слова "один"
      * на соответствующее по индексу значение в массиве $ry. Т.е. в нашем случае у нас последний символ - это "1", значит мы будем искать такое значение в массиве ff - такое значение в нем есть
      * - это индекс с номером 1. Значит мы берем значение в массиве ry c индексом 1 ("1 час") и ставим его вместо "1". Таким образом, в результате получается
      * "1 час". 
-     * */
+     *
 }
 echo '<br>';
 echo '<br>';
@@ -154,3 +162,53 @@ function getTime(){
     }
 
 echo getTime();
+*/
+function getNumEnding($number, $one, $four, $five){
+
+    $number = $number % 100;
+
+    if($number >= 11 && $number <= 19){
+        return $five;
+    }
+
+    switch ($number % 10){
+        case 1: return $one;
+        case 2:
+        case 3:
+        case 4: return $four;
+        default: return $five;
+    }
+
+
+}
+echo '<br>';
+echo '<br>';
+$hour = date('G');
+$minute = date('i');
+echo "Текущее время: $hour " . getNumEnding($hour, "час", "часа", "часов") . " $minute " . getNumEnding($minute, "минута", "минуты", "минут");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
