@@ -132,8 +132,7 @@ foreach ($arr as $region => $cities) {
 echo '<br>';
 echo '<br>';
 
-function getLatStr($string){
-
+function getLatinStr($string){
     $arr = [
         'а' => 'a',
         'б' => 'b',
@@ -170,4 +169,9 @@ function getLatStr($string){
         'х' => 'h'
     ];
 
+    foreach ($arr as  $source => $change){
+        //echo $source." - источник <br>";
+        //echo $change." - замена <br>";
+    }
 }
+getLatinStr();
