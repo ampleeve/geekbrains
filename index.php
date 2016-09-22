@@ -99,26 +99,23 @@ foreach ($arr as $region => $cities) {
 
 /*
  * Задание со звездочкой. Повторите предыдущее задание, но выводите на экран только города, начинающиеся с буквы «К».
+ *
+ * !!! Вопрос - как лучше определить что мы выводим последний город, который начинается с К чтобы не ставить ему запятую в конце? 
  * */
+
+echo '<br>';
+echo '<br>';
 
 foreach ($arr as $region => $cities) {
 
     echo $region . ":<br>";
 
-    $count = 0;
-
     foreach ($cities as $cityIndex => $city){
 
-        $count ++;
+        if (mb_substr($city, 0, 1, "UTF-8") == "К" || mb_substr($city, 0, 1, "UTF-8") == "к"){
 
-        if ($count != count($cities)){
+          echo $city.", ";
 
-            echo $city.', ';
-        }
-
-        else {
-
-            echo $city;
         }
     }
 
