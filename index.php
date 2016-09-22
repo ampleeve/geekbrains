@@ -89,6 +89,35 @@ foreach ($arr as $region => $cities) {
         }
 
         else {
+
+            echo $city;
+        }
+    }
+
+    echo '<br>';
+}
+
+/*
+ * Задание со звездочкой. Повторите предыдущее задание, но выводите на экран только города, начинающиеся с буквы «К».
+ * */
+
+foreach ($arr as $region => $cities) {
+
+    echo $region . ":<br>";
+
+    $count = 0;
+
+    foreach ($cities as $cityIndex => $city){
+
+        $count ++;
+
+        if ($count != count($cities)){
+
+            echo $city.', ';
+        }
+
+        else {
+
             echo $city;
         }
     }
