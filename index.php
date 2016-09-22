@@ -89,6 +89,7 @@ foreach ($arr as $region => $cities) {
         }
 
         else {
+            
             echo $city;
         }
     }
