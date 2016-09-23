@@ -112,15 +112,33 @@ foreach ($arr as $region => $cities) {
 
     echo $region . ":<br>";
 
+    $arrK = [];
+
     foreach ($cities as $cityIndex => $city){
 
         if (mb_substr($city, 0, 1, "UTF-8") == "К" || mb_substr($city, 0, 1, "UTF-8") == "к"){
 
-            echo $city.", ";
+            $arrK[] = $city;
 
         }
     }
 
+    $count = 0;
+    
+    foreach ($arrK as $city){
+
+        $count ++;
+
+        if ($count != count($arrK)){
+
+            echo $city.', ';
+        }
+
+        else {
+
+            echo $city;
+        }
+    }
     echo '<br>';
 }
 
