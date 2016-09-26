@@ -7,8 +7,7 @@
 
 $i = 0;
 while ($i <= 100) {
-    $res = $i % 3;
-    if($res == 0){
+    if($i % 3 == 0){
         echo $i;
         echo '<br>';
     }
