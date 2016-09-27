@@ -38,6 +38,20 @@
 
 
   ];
+
+  $page = $_GET['page'] ? $_GET['page'] :  'catalog';
+
+  if ($page == 'catalog') {
+
+      require_once ('catalog.php');
+
+  }
+  else if ($page == 'good'){
+
+      require_once ('good.php');
+
+  }
   ?>
+
 </body>
 </html>
