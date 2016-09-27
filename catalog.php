@@ -1,7 +1,7 @@
 <?php foreach ($goods as $good): ?>
     <div>
         <h2><?= $good['name'];?></h2>
-        <img src="goods/"<?=$good['img']?> alt="<?=$good['name']?>" style = "width: 250 px;">
+        <img src="goods/<?= $good['img']; ?>" style = "width: 250px;">
 
         <p>
             <?= mb_strlen($good['desc']) > 100

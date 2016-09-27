@@ -1,3 +1,2 @@
 <?php
-
-echo "Товар ID: " . $_GET['id'];
+echo 'good.php';

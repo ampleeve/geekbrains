@@ -48,7 +48,28 @@
   }
   else if ($page == 'good'){
 
+      $selectedGood = [];
+
+      foreach ($goods as $good){
+
+          if($good['id'] == $_GET['id']) {
+
+              $selectedGood = $good;
+              break;
+          }
+      }
+
+      if(!$selectedGood){
+
+          echo 'Товар не найден';
+
+      }
+
+      else {
+
       require_once ('good.php');
+
+      }
 
   } else {
 
