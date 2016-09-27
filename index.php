@@ -54,8 +54,8 @@
 
           foreach ($goods as $good){
 
-              if($good['name'] == $_GET['query']){
-              //if(stripos ( $good['name'] , $_GET['query'] ){
+              //if($good['name'] == $_GET['query']){
+              if(stripos($good['name'], $_GET['query'])){
 
                   $selectedGoods [] = $good;
 
