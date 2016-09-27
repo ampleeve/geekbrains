@@ -48,6 +48,20 @@
 
   if ($page == 'catalog') {
 
+      $selectedGoods = [];
+
+      foreach ($goods as $good){
+
+        if($good['name'] == $_GET['query']){
+
+            $selectedGoods [] = $good;
+
+        }
+
+      }
+
+      var_dump($selectedGoods);die();
+
       require_once ('catalog.php');
 
   }
