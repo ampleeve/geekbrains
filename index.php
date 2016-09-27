@@ -43,7 +43,10 @@
 
   <?php foreach ($goods as $good): ?>
       <div>
-        <h2><?php echo $good['name'];?></h2>
+        <h2><?= $good['name'];?></h2>
+        <img src="" alt="">
+        <p><?= $good['desc'];?></p>
+        <p><?= $good['price']. " руб.";?></p>
       </div>
   <?php endforeach; ?>
 </body>
