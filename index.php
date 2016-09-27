@@ -51,6 +51,10 @@
       require_once ('good.php');
 
   }
+  else{
+
+      echo "Ошибка, страницы не существует";
+  }
   ?>
 
 </body>
