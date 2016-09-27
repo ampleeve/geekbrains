@@ -5,7 +5,7 @@
   <title></title>
 </head>
 <body>
-<form action="/" method="get">
+<form action="/geekbrains/" method="get">
     Поиск:
     <input type = "text" name = "query">
     <input type ="submit" value="Найти">
