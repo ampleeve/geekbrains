@@ -51,7 +51,7 @@
       require_once ('good.php');
 
   } else {
-      
+
       echo "Ошибка, не верная страница.";
   }
   ?>

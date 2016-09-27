@@ -10,5 +10,6 @@
         </p>
 
         <p><?= $good['price']. " руб.";?></p>
+        <a href="?page=good&id=<?= $good['id']?>">Подробнее</a>
     </div>
 <?php endforeach; ?>
