@@ -38,11 +38,13 @@
 
 
   ];
-echo '<pre>';
-  foreach ($goods as $good){
-    var_dump($good);
-  }
-
   ?>
+
+
+  <?php foreach ($goods as $good): ?>
+      <div>
+        <h2><?php echo $good['name'];?></h2>
+      </div>
+  <?php endforeach; ?>
 </body>
 </html>
