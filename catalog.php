@@ -1,4 +1,4 @@
-<?php foreach ($goods as $good): ?>
+<?php foreach ($selectedGoods as $good): ?>
     <div>
         <h2><?= $good['name'];?></h2>
         <img src="goods/<?= $good['img']; ?>" style = "width: 250px;">

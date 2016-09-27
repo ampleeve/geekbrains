@@ -50,17 +50,22 @@
 
       $selectedGoods = [];
 
-      foreach ($goods as $good){
+      if(!empty($_GET['query'])){
 
-        if($good['name'] == $_GET['query']){
+          foreach ($goods as $good){
 
-            $selectedGoods [] = $good;
+              if($good['name'] == $_GET['query']){
 
-        }
+                  $selectedGoods [] = $good;
+
+              }
+
+          }
 
       }
-
-      var_dump($selectedGoods);die();
+      else {
+          $selectedGoods = $goods;
+      }
 
       require_once ('catalog.php');
 
