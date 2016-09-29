@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 }
 ?>
 
-<form action="/login.php" method="post">
+<form action="Login.php" method="post">
     <input type="text" name="login" placeholder="Login:" required>
     <input type="password" name="password" placeholder="Password:" required>
     <input type="submit" value="Login">
