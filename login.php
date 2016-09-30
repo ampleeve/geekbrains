@@ -3,7 +3,7 @@ session_start();
 require_once ('functions.php');
 
 if(isAuthorized()){
-    redirect('/geekbrains.git');
+redirect('/geekbrains.git');
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(login($_POST['login'], $_POST['password'])){

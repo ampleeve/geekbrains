@@ -7,6 +7,6 @@ require_once ('functions.php');
 
 <?php if (isAuthorized()): ?>
     <a href="Logout.php">Выйти</a>
-<?php else: ?>
+    <?php else: ?>
     <a href="Login.php">Войти</a>
 <?php endif;?>
