@@ -6,7 +6,7 @@ require_once ('functions.php');
 <p>Привет, <?= getCurrentUserName(); ?></p>
 
 <?php if (isAuthorized()): ?>
-    <a href="Logout.php">Выйти</a>
+    <a href="logout.php">Выйти</a>
     <?php else: ?>
-    <a href="Login.php">Войти</a>
+    <a href="login.php">Войти</a>
 <?php endif;?>
