@@ -5,7 +5,11 @@ require_once ('functions.php');
 
 <p>Привет, <?= getCurrentUserName(); ?></p>
 
-
+<?php if (isAuthorized()): ?>
+    <a href="Logout.php">Выйти</a>
+<?php else: ?>
+    <a href="Login.php">Войти</a>
+<?php endif;?>
 
 <?php
 if (isAuthorized()){
@@ -15,8 +19,4 @@ if (isAuthorized()){
 }
 ?>
 
-<?php if (isAuthorized()): ?>
-    <a href="Logout.php">Выйти</a>
-<?php else: ?>
-    <a href="Login.php">Войти</a>
-<?php endif;?>
+
