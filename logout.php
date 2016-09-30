@@ -2,4 +2,4 @@
 session_start();
 require_once ('functions.php');
 logout();
-redirect('/geekbrains');
+redirect('/geekbrains.git');
