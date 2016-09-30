@@ -4,10 +4,8 @@ require_once ('functions.php');
 ?>
 
 <?php
-
-
-if (isAuthorized() && isThisUserLastPage() ){
-    redirect($_SESSION['lastPage']['page']);
+if (isAuthorized() && isset($_SESSION ['lastPage'])){
+    redirect($_SESSION['lastPage']);
 }else{
     redirect('login.php');
 }

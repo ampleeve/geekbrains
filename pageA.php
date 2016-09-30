@@ -1,11 +1,6 @@
 <?php
 session_start();
-$_SESSION['lastPage'] = [
-
-    'page' => 'pageA.php',
-    'userId' => $_SESSION['id']
-
-];
+$_SESSION['lastPage'] = 'pageA.php';
 
 echo 'pageA';
 echo '<br>';
