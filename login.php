@@ -3,11 +3,11 @@ session_start();
 require_once ('functions.php');
 
 if(isAuthorized()){
-redirect('/');
+redirect('/geekbrains');
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(login($_POST['login'], $_POST['password'])){
-        redirect('/');
+        redirect('/geekbrains');
     }
     else{
         echo '<p>Login or password is incorrect..</p>';
