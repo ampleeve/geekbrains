@@ -14,3 +14,9 @@ if (isAuthorized()){
     redirect('Login.php');
 }
 ?>
+
+<?php if (isAuthorized()): ?>
+    <a href="Logout.php">Выйти</a>
+<?php else: ?>
+    <a href="Login.php">Войти</a>
+<?php endif;?>
