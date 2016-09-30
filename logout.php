@@ -1,7 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: evgenijampleev
- * Date: 30.09.16
- * Time: 14:52
- */
+session_start();
+require_once ('functions.php');
+logout();
+redirect('/geekbrains.git');
