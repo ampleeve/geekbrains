@@ -9,7 +9,7 @@ require_once ('functions.php');
 
 <?php
 if (isAuthorized()){
-    redirect('pageA.php');
+    redirect($_SESSION['lastPage']);
 }else{
     redirect('Login.php');
 }
