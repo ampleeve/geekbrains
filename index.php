@@ -39,10 +39,10 @@ var_dump($var);*/
     <html>
         <head>
             <meta charset="utf-8"/>
-            <title>Загрузка файлов на сервер</title>
+            <title>Фотогалерея</title>
         </head>
         <body>
-        <h1>Пример загрузки файлов на сервер</h1>
+        <h1>Фотогалерея</h1>
 
         <?php
         if(isset($_FILES['file'])){
