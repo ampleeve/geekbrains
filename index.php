@@ -2,20 +2,17 @@
 
 
 function uploadFile($file){
-    if($file['name'] == ''){
-        echo "Файл не выбран!";
+    if($file['image'] == '' || !getimagesize($file['image'])){
+        echo "Файл не выбран или не изображение!";
     }
 
-    if(copy($file['tmp_name'], 'img/'.$file['name'])){
+    if(copy($file['tmp_name'], 'img/'.$file['image'])){
         echo "Файл успешно загружен";
     }
     else{
         echo "Ошибка загрузки файла";
     }
 }
-
-
-
 /*$var = mt_rand(0,1);
 
 function log1($msg) {
@@ -50,9 +47,9 @@ var_dump($var);*/
         }
         ?>
 
-        <form method="POST" enctype="multipart/form-data">
-            <input type="file" name="file" />
-            <input type="submit" value = 'Загрузить файл'>
+        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" />
+            <input type="submit" value = 'Загрузить изображение'>
         </form>
 
         </body>
