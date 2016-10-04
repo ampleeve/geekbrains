@@ -1,7 +1,16 @@
 <?php
+
+function showImagesFromDir($path){
+
+    $images = scandir($path);
+    foreach ($images as $image){
+      //  echo getimagesize($path.$image['tmp_name']);
+
+    }
+
+}
 function uploadFile($file){
-    echo '<pre>';
-    var_dump(getimagesize($file['tmp_name']));
+
     if($file['name'] == '' || !getimagesize($file['tmp_name']) ){
         echo "Файл не выбран или вы пытаетесь загрузить не изображение, к сожалению..";
     }
@@ -23,10 +32,15 @@ function uploadFile($file){
         <h1>Фотогалерея</h1>
 
         <?php
+            showImagesFromDir('img/');
+        ?>
+
+        <?php
         if(isset($_FILES['image'])){
             uploadFile($_FILES['image']);
         }
         ?>
+        <img src="/Applications/XAMPP/htdocs/geekbrains.git/img/3bIeUw6Hl9s.jpg">
 
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" enctype="multipart/form-data">
             <input type="file" name="image" />
