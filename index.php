@@ -1,36 +1,17 @@
 <?php
-
-
 function uploadFile($file){
-    if($_FILES['image'] == '' || !getimagesize($_FILES['image'])){
-        echo "Файл не выбран или не изображение!";
+    echo '<pre>';
+    var_dump(getimagesize($file['tmp_name']));
+    if($file['name'] == '' || !getimagesize($file['tmp_name']) ){
+        echo "Файл не выбран или вы пытаетесь загрузить не изображение, к сожалению..";
     }
-
-    if(copy($file['tmp_name'], 'img/'.$file['image'])){
+    elseif(copy($file['tmp_name'], 'img/'.$file['name'])){
         echo "Файл успешно загружен";
     }
     else{
         echo "Ошибка загрузки файла";
     }
 }
-/*$var = mt_rand(0,1);
-
-function log1($msg) {
-$time = date('H:i:s');
-$f = fopen('log.txt', 'a+'); fputs($f, "$time: $msg \n"); fclose($f);
-}
-if($var==1){
-
-    log1('попали сюда');
-
-} else {
-
-    log1('попали туда');
-
-}
-echo '<pre>';
-$var = file('log.txt');
-var_dump($var);*/
 ?>
 <!DOCTYPE html>
     <html>
@@ -42,8 +23,8 @@ var_dump($var);*/
         <h1>Фотогалерея</h1>
 
         <?php
-        if(isset($_FILES['file'])){
-            uploadFile($_FILES['file']);
+        if(isset($_FILES['image'])){
+            uploadFile($_FILES['image']);
         }
         ?>
 
