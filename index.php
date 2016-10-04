@@ -2,7 +2,7 @@
 
 
 function uploadFile($file){
-    if($file['image'] == '' || !getimagesize($file['image'])){
+    if($_FILES['image'] == '' || !getimagesize($_FILES['image'])){
         echo "Файл не выбран или не изображение!";
     }
 
