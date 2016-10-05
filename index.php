@@ -1,7 +1,6 @@
 <?php
 
 require_once ('functions.php');
-phpinfo();
 
 if($_SERVER['REQUEST_METHOD']==='POST' && !empty($_FILES['image'])){
     $error = handleRequest($_FILES['image']);
@@ -19,6 +18,14 @@ if($_SERVER['REQUEST_METHOD']==='POST' && !empty($_FILES['image'])){
 
         <body>
             <h1>Фотогалерея</h1>
+
+            <?php
+
+            if (!empty($error)){
+                echo $error;
+            }
+
+            ?>
 
             <div>
             <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" enctype="multipart/form-data">

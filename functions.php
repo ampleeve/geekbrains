@@ -24,9 +24,9 @@ function handleRequest($uploadedImage){
     if($uploadedImage['error'] !== 0 ){
         return 'Ошибка загрузки изображения';
     }
-    if($uploadedImage['size'] > 1024 * 1024){
-        return 'Изображение должно быть меньше или равно 1 мб';
-    }
+    //if($uploadedImage['size'] > 1024 * 1024){
+    //    return 'Изображение должно быть меньше или равно 1 мб';
+    //}
     $ext = getExtensionByType($uploadedImage['type']);
     if(!$ext){
         return 'Не верное расширение изображения. Подходящие форматы *.jpg и *.png';
@@ -49,13 +49,18 @@ function handleRequest($uploadedImage){
  */
 function getExtensionByType($type){
 
+    echo $type;
+
     switch ($type) {
 
         case 'image/jpg':
             return 'jpg';
 
-        case 'image/jpg':
+        case 'image/png':
             return 'png';
+
+        case 'image/jpeg':
+            return 'jpeg';
 
         default:
             return false;
