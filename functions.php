@@ -1,24 +1,31 @@
 <?php
+require_once ("conf.php");
+
 /**
  * Возвращает массив названий изображений из директории min
  * @return array
  */
 function getImages(){
     $images = [];
-    $stream = opendir('img/min');
-    while($item = readdir($stream)){
-        if($item == '.' || $item == '..'){
-            continue;
-        }
-        $images[] = $item;
+    $conn = mysqli_connect(HOST, USER, PASS, DB);
+    if(!$conn){
+        die("Не удалось подключиться к БД: ". mysqli_connect_error());
     }
+
+    if(!mysqli_set_charset($conn, 'utf8')){
+        die("Не удалось сменить кодировку бд". mysqli_error($conn));
+    }
+
+    $sql = 'SELECT * FROM images ORDER BY popularity DESC;';
+    $result = mysqli_query($conn, $sql);
+
+    while($row = mysqli_fetch_assoc($result)){
+        $images[] = $row['id'];
+    }
+    mysqli_close($conn);
     return $images;
 }
-/**
- * Метод принимает загруженное изображение, проверяет его и сохраняет в папки img/full и img/min
- * @param $uploadedImage
- * @return string
- */
+
 function handleRequest($uploadedImage){
 
     if($uploadedImage['error'] !== 0 ){
@@ -38,8 +45,27 @@ function handleRequest($uploadedImage){
     if(!img_resize("img/full/$imgName.$ext", "img/min/$imgName.$ext", 300, 300)){
         return 'Файл загружен не корректно';
     }
+    $conn = mysqli_connect(HOST, USER, PASS, DB);
+    if(!$conn){
+        die("Не удалось подключиться к БД: ". mysqli_connect_error());
+    }
+
+    if(!mysqli_set_charset($conn, 'utf8')){
+        die("Не удалось сменить кодировку бд". mysqli_error($conn));
+    }
+
+    // Создание соответствующей записи в бд
+    $imgFullName = $imgName.'.'.$ext;
+    $sql = "INSERT INTO images (id, popularity, description, name) VALUES (NULL, 0, '$imgFullName', '$imgFullName' )";
+
+    if(!mysqli_query($conn, $sql)){
+        return 'Ошибка!' . mysqli_error($conn);
+    }
+
+    mysqli_close($conn);
     return '';
 }
+
 
 /**
  *
@@ -128,4 +154,85 @@ function img_resize($src, $dest, $width, $height, $rgb = 0xFFFFFF, $quality = 10
     imagedestroy($idest);
 
     return true;
+}
+
+function updatePopularity($id){
+    $conn = mysqli_connect(HOST, USER, PASS, DB);
+    if(!$conn){
+        die("Не удалось подключиться к БД: ". mysqli_connect_error());
+    }
+
+    if(!mysqli_set_charset($conn, 'utf8')){
+        die("Не удалось сменить кодировку бд". mysqli_error($conn));
+    }
+    $sql = "UPDATE images SET popularity = popularity + 1 WHERE id = '$id'";
+    $result = mysqli_query($conn, $sql);
+    if(!$result){
+        echo 'Не верный запрос';
+        mysqli_close($conn);
+        return false;
+    }
+    mysqli_close($conn);
+
+
+}
+
+function getNameFromId($id){
+    $conn = mysqli_connect(HOST, USER, PASS, DB);
+    if(!$conn){
+        die("Не удалось подключиться к БД: ". mysqli_connect_error());
+    }
+
+    if(!mysqli_set_charset($conn, 'utf8')){
+        die("Не удалось сменить кодировку бд". mysqli_error($conn));
+    }
+
+    $sql = "SELECT * FROM images";
+    $result = mysqli_query($conn, $sql);
+    if(!$result){
+        echo 'Не верный запрос';
+        mysqli_close($conn);
+        return false;
+    }
+    while($row = mysqli_fetch_assoc($result)){
+        if($row['id'] == $id){
+            //echo '<br>';
+            //echo $row['name'];
+            mysqli_close($conn);
+            return $row['name'];
+        }
+    }
+    mysqli_close($conn);
+    return false;
+
+}
+
+function getPopularity($id){
+    $conn = mysqli_connect(HOST, USER, PASS, DB);
+    if(!$conn){
+        die("Не удалось подключиться к БД: ". mysqli_connect_error());
+    }
+
+    if(!mysqli_set_charset($conn, 'utf8')){
+        die("Не удалось сменить кодировку бд". mysqli_error($conn));
+    }
+
+    $sql = "SELECT * FROM images";
+    $result = mysqli_query($conn, $sql);
+    if(!$result){
+        echo 'Не верный запрос';
+        mysqli_close($conn);
+        return false;
+    }
+    while($row = mysqli_fetch_assoc($result)){
+        if($row['id'] == $id){
+            //echo '<br>';
+            //echo $row['name'];
+            mysqli_close($conn);
+            return $row['popularity'];
+        }
+    }
+    mysqli_close($conn);
+    return false;
+
 }
