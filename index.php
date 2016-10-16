@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD']==='POST' && !empty($_FILES['image'])){
 
             <?php foreach (getImages() as $image): ?>
             <div>
-                <a href = "image.php?img= <?= $image ?>">
+                <a href = "image.php?img=<?= $image ?>">
                     <img src = "img/min/<?= $image ?>">
                 </a>
             </div>
