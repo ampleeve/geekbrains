@@ -1,5 +1,5 @@
 <?php
 define('HOST', 'localhost');
-define('USER', 'root');
-define('PASS', '');
-define('DB', 'test1');
+define('USER', 'ampleeve');
+define('PASS', 'testPass');
+define('DB', 'photoGalleryTest');
