@@ -1,7 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: evgenijampleev
- * Date: 16.10.16
- * Time: 14:10
- */
+define('HOST', 'localhost');
+define('USER', 'root');
+define('PASS', '');
+define('DB', 'test1');
