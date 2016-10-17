@@ -58,7 +58,7 @@ else{
 */
 
 // Редактирование
-
+/*
 $sql = "UPDATE `users` SET `description`= 'Это Вася, ээээ ...!' WHERE id=4";
 if(mysqli_query($conn, $sql)){
     echo '<br>';
