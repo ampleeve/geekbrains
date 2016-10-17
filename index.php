@@ -1,6 +1,5 @@
 <?php
 require_once ("conf.php");
-echo 'hello';
 
 $conn = mysqli_connect(HOST, USER, PASS, DB);
 
@@ -33,7 +32,7 @@ while($row = mysqli_fetch_assoc($result)){
 }
 
 // Создание
-/*
+
 $pass = md5('1234');
 $sql = "INSERT INTO users (id, login, pass, description) VALUES (NULL, 'Alexey', '$pass', NULL )";
 
@@ -44,7 +43,7 @@ if(mysqli_query($conn, $sql)){
 }
 else{
     echo 'Ошибка!' . mysqli_error($conn);
-}*/
+}
 
 // Удаление
 
