@@ -34,7 +34,7 @@ while($row = mysqli_fetch_assoc($result)){
 // Создание
 
 $pass = md5('1234');
-$sql = "INSERT INTO users (id, login, passord, description) VALUES (NULL, 'Alexey', '$pass', NULL )";
+$sql = "INSERT INTO users (id, login, password, description) VALUES (NULL, 'Alexey', '$pass', NULL )";
 
 if(mysqli_query($conn, $sql)){
     $lastId = mysqli_insert_id($conn);
