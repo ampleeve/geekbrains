@@ -9,6 +9,7 @@ function getRequestAction(){
 }
 
 function renderPage(){
+
     $controller = getRequestController();
     if(!file_exists(CONTROLLERS_DIR . '/' . $controller . 'Controller.php')){
         throwError();
@@ -20,7 +21,7 @@ function renderPage(){
         throwError();
     }
 
-    call_user_func('action'.ucfirst($action))
+    call_user_func('action'.ucfirst($action));
 }
 
 function throwError($error = ''){
