@@ -8,7 +8,7 @@ define('VIEWS_DIR', SITE_ROOT . '/views');
 define('CONTROLLERS_DIR', SITE_ROOT . '/controllers');
 
 define('DB_HOST', 'localhost');
-define('DB_USER', 'ampleeve');
+define('DB_USER', 'eampleev');
 define('DB_PASS', 'password');
 define('DB_NAME', 'test_db');
 
