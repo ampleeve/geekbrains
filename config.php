@@ -1,5 +1,5 @@
 <?php
-define('SITE_ROOT', 'geekbrains/' . __DIR__);
+define('SITE_ROOT', 'geekbrains/www' . __DIR__);
 define('WWW_ROOT', SITE_ROOT . '/www');
 define('LIB_DIR', SITE_ROOT . '/lib');
 
