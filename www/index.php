@@ -1,4 +1,7 @@
 <?php
-require_once ('../config.php');
-echo renderPage();
-
+/**
+ * Created by PhpStorm.
+ * User: evgenijampleev
+ * Date: 19.10.16
+ * Time: 17:05
+ */
