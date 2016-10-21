@@ -37,11 +37,35 @@ function renderPage(){
     return call_user_func('action' . ucfirst($action)); // вызывается экшн и возвращается реультат его работы
 }
 
+/**
+ * @param $view Название вьюхи
+ * @param array $variables Переменные для контента в зависимости от экшена
+ * @param array $layoutVars Переменные окружения например title
+ * @param string $layout - название основного шаблона страницы(типа футер например и меню, которые выводятся везде,
+ * на всех страницах)
+ * @return string Возвращает html код результирующий - по сути рендерится полностью страница в зависимости от контроллера и
+ * экшена в нем
+ *
+ * Функция добавляет в массив $layoutVars еще один элемент - контент и сразу генерирует его с помощью функции renderParial()
+ * Затем уже сформированный контент обворачивает в основной лэйаут и возвращает уже полностью сгенерированную html страницу
+ *
+ */
 function render($view, $variables = [], $layoutVars = [], $layout = 'layout'){
+    //echo'<pre>';
+    //var_dump($layoutVars);
+    //echo'<br>';
+    //var_dump($layoutVars['title']);
     $layoutVars['content'] = renderPartial(getRequestController() . '/' . $view, $variables);
+    //var_dump($layoutVars);
+    //var_dump($layoutVars['content']);die();
     return renderPartial('layouts/' . $layout, $layoutVars);
 }
 
+/**
+ * @param $view имя вьюхи, которая будет отображаться в зависимости от контроллера и экшена в нем сработавшего
+ * @param array $variables контекстные переменные в зависимости от контроллера и экшена сработавшего
+ * @return string возвращает строку html для вывода на странице, на которой была вызвана функция renderPage
+ */
 function renderPartial($view, $variables = []){
     extract($variables);
     ob_start();
