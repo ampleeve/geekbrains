@@ -1,7 +1,3 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: evgenijampleev
- * Date: 19.10.16
- * Time: 17:05
- */
+require_once ('../config.php');
+echo renderPage(); // Данная функция определена в core.php, который подключен в config.php
