@@ -8,17 +8,15 @@
  * , в которую передаем название view, которая отвечает за отображение данных по этому экшену, сами данные в виде массива
  * и метаданные, в нашем случае тайтл страницы
  */
-function actionIndex(){
-    require_once (MODELS_DIR . '/' . 'images.php');
-    if($_SERVER['REQUEST_METHOD']==='POST' && !empty($_FILES['image'])){
-        $error = handleRequest($_FILES['image']);
+function actionShowImage(){
+    $image ['id'] = !empty($_GET['id']) ? $_GET['id'] : false;
+    if($image['id'] != false){
+        require_once (MODELS_DIR . '/' . 'image.php');
+        addPopularity($image['id']);
+        $image['popularity'] = getPopularity($image['id']);
+        $image['fullPath'] = getFullPath($image ['id']);
+        return render('image', ['image' => $image], ['title' => 'Просмотр изображения']);
     }
-    if (!empty($error)){
-        echo $error;
-    }
-    $images = getAllImages();
-    return render('index', ['images' => $images], ['title' => 'Все изображения + загрузка']);
-
 }
 
 /**
