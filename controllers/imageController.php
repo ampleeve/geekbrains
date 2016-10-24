@@ -12,9 +12,17 @@ function actionShowImage(){
     $image ['id'] = !empty($_GET['id']) ? $_GET['id'] : false;
     if($image['id'] != false){
         require_once (MODELS_DIR . '/' . 'image.php');
+        if($_SERVER['REQUEST_METHOD']==='POST' && !empty($_POST['newTitle'])){
+            updateTitle($image['id'], $_POST['newTitle']);
+        }
+        if($_SERVER['REQUEST_METHOD']==='POST' && !empty($_POST['newAlt'])){
+            updateAlt($image['id'], $_POST['newAlt']);
+        }
         addPopularity($image['id']);
         $image['popularity'] = getPopularity($image['id']);
         $image['fullPath'] = getFullPath($image ['id']);
+        $image['title'] = getTitle($image ['id']);
+        $image['alt'] = getAlt($image ['id']);
         return render('image', ['image' => $image], ['title' => 'Просмотр изображения']);
     }
 }

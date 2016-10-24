@@ -6,19 +6,21 @@
 
 
 <div>
-    <h1><?= $image['fullPath']; ?></h1>
+    <h1><?= $image['title']; ?></h1>
         <div>
             <a href="index.php">Назад</a><br>
             <p>Популярность: <?= $image['popularity'] ?></p><br>
-            <img src="i/full/<?=$image['fullPath']?>" style="...">
+            <img title="<?=$image['title']?>" alt="<?=$image['alt']?>" src="i/full/<?=$image['fullPath']?>" style="...">
             </a>
         </div>
 
         <div>
-            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST"">
+            <form action="/?controller=image&action=showImage&id=<?= $image['id'] ?>" method="POST"">
                 <label for="loadImage">Изменить title картинки:</label>
-                <input type="text">
-                <input type="submit" value = 'Загрузить изображение'>
+                <input type="text" name="newTitle"/>
+                <label for="loadImage">Изменить Alt картинки:</label>
+                <input type="text" name="newAlt"/>
+                <input type="submit" value = 'Обновить данные'>
             </form>
         </div>
 </div>

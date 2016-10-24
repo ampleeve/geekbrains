@@ -11,10 +11,18 @@ function addPopularity($id){
     return update("UPDATE images SET popularity = popularity + 1 WHERE id = '$id'");
 }
 
-function updateTitle($id){
-    //return update("UPDATE images SET popularity = popularity + 1 WHERE id = '$id'");
+function getTitle($id){
+    return select("SELECT title FROM images WHERE id = $id;")[0]['title'];
 }
 
-function updateAlt($id){
-    //return update("UPDATE images SET popularity = popularity + 1 WHERE id = '$id'");
+function getAlt($id){
+    return select("SELECT alt FROM images WHERE id = $id;")[0]['alt'];
+}
+
+function updateTitle($id, $title){
+    return update("UPDATE images SET title = '$title'  WHERE id = '$id'");
+}
+
+function updateAlt($id, $alt){
+    return update("UPDATE images SET alt = '$alt' WHERE id = '$id'");
 }
