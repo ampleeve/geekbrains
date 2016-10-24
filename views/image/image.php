@@ -8,7 +8,7 @@
 <div>
     <h1><?= $image['title']; ?></h1>
         <div>
-            <a href="index.php">Назад</a><br>
+            <a href="/">Назад</a><br>
             <p>Популярность: <?= $image['popularity'] ?></p><br>
             <img title="<?=$image['title']?>" alt="<?=$image['alt']?>" src="i/full/<?=$image['fullPath']?>" style="...">
             </a>
