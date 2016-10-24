@@ -17,7 +17,7 @@ function actionIndex(){
         echo $error;
     }
     $images = getAllImages();
-    return render('index', ['images' => $images], ['title' => 'Все изображения + загрузка']);
+    return render('index', ['images' => $images], ['title' => ROOT_TITLE]);
 
 }
 

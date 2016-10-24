@@ -24,7 +24,7 @@ function getRequestAction(){
  */
 function renderPage(){
     $controller = getRequestController();
-    if(!file_exists(CONTROLLERS_DIR . '/' . $controller . 'controller.php')){
+    if(!file_exists(CONTROLLERS_DIR . '/' . $controller . 'Controller.php')){
         throwError();
     }
     require_once (CONTROLLERS_DIR . '/' . $controller . 'Controller.php'); // В контроллере хранятся все экшены - функции обработки различного рода запросов

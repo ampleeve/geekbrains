@@ -23,7 +23,8 @@ function actionShowImage(){
         $image['fullPath'] = getFullPath($image ['id']);
         $image['title'] = getTitle($image ['id']);
         $image['alt'] = getAlt($image ['id']);
-        return render('image', ['image' => $image], ['title' => getTitle($image ['id'])]);
+        //return render('image', ['image' => $image], ['title' => ROOT_TITLE .' :: ' . getTitle($image ['id'])]);
+        return render('image', ['image' => $image], ['title' => getTitle($image ['id']) .' :: ' . ROOT_TITLE]);
     }
 }
 

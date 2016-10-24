@@ -9,7 +9,7 @@
 
     <?php foreach ($images as $imageId): ?>
         <div>
-            <a href = "/?controller=image&action=showImage&id=<?= $imageId['id'] ?>">
+            <a href = "/?controller=image&action=showImage&id=<?= $imageId['id'] ?>&preTitle=">
                 <img src = "i/min/<?= $imageId['name']; ?>">
             </a>
         </div>
