@@ -8,9 +8,9 @@ define('CONTROLLERS_DIR', SITE_ROOT . '/controllers');
 define('VIEWS_DIR', SITE_ROOT . '/views');
 
 define('DB_HOST','localhost');
-define('DB_USER','root');
-define('DB_PASS','');
-define('DB_NAME','test1');
+define('DB_USER','eampleev');
+define('DB_PASS','password');
+define('DB_NAME','test_db');
 
 require_once (LIB_DIR . '/core.php');
 require_once (LIB_DIR . '/db.php');
