@@ -19,5 +19,6 @@ function actionIndex(){
  * Аналогичная обработка другого экшена - ошибки.
  */
 function actionError(){
-    return render('error', ['error' => 'Ошибка!'], ['title' => 'Ошибка']);
+    $error = !empty($_REQUEST['error']) ? $_REQUEST['error'] : 'Ошибка сайта. Сайтам свойственно ошибаться..';
+    return render('error', ['error' => $error], ['title' => 'Ошибка']);
 }
