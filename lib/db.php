@@ -9,7 +9,7 @@ if(!$dbConn){
  */
 function select($sql){
     global $dbConn;
-    mysqli_real_escape_string($dbConn, $sql);
+    //mysqli_real_escape_string($dbConn, $sql);
     $result = mysqli_query($dbConn, $sql);
     if(!$result){
         return false;
@@ -27,7 +27,7 @@ function select($sql){
  */
 function insert($sql){
     global $dbConn;
-    mysqli_real_escape_string($dbConn, $sql);
+    //mysqli_real_escape_string($dbConn, $sql);
     if(!mysqli_query($dbConn, $sql)){
         return false;
     }
@@ -40,7 +40,7 @@ function insert($sql){
  */
 function update($sql){
     global $dbConn;
-    mysqli_real_escape_string($dbConn, $sql);
+    //mysqli_real_escape_string($dbConn, $sql);
     return mysqli_query($dbConn, $sql);
 }
 
@@ -50,6 +50,6 @@ function update($sql){
  */
 function delete($sql){
     global $dbConn;
-    mysqli_real_escape_string($dbConn, $sql);
+    //mysqli_real_escape_string($dbConn, $sql);
     return mysqli_query($dbConn, $sql);
 }
