@@ -5,19 +5,30 @@
 function actionShowImage(){
     require_once (MODELS_DIR . '/' . 'image.php');
     if(!empty($_GET['id']) && checkImage($_GET['id'])){
-            $image ['id'] = $_GET['id'];
-            if($_SERVER['REQUEST_METHOD']==='POST' && !empty($_POST['newTitle'])){
-                updateTitle($image['id'], $_POST['newTitle']);
+            $imageIdFromGet = $_GET['id'];
+            if($_SERVER['REQUEST_METHOD']==='POST' && !empty($_POST['newTitle']) || !empty($_POST['newAlt']))
+            {
+                if(!empty($_POST['newTitle']) && empty($_POST['newAlt']))
+                {
+                    updateTitle($imageIdFromGet, $_POST['newTitle']);
+                }
+                elseif (!empty($_POST['newTitle']) && !empty($_POST['newAlt']))
+                {
+                    updateAltTitle($imageIdFromGet, $_POST['newAlt'], $_POST['newTitle']);
+                }
+                elseif(empty($_POST['newTitle']) && !empty($_POST['newAlt']))
+                {
+                    updateAlt($imageIdFromGet, $_POST['newAlt']);
+                }
             }
-            if($_SERVER['REQUEST_METHOD']==='POST' && !empty($_POST['newAlt'])){
-                updateAlt($image['id'], $_POST['newAlt']);
-            }
-            addPopularity($image['id']);
-            $image['popularity'] = getPopularity($image['id']);
-            $image['fullPath'] = getFullPath($image ['id']);
-            $image['title'] = getTitle($image ['id']);
-            $image['alt'] = getAlt($image ['id']);
-            return render('image', ['image' => $image], ['title' => getTitle($image ['id']) .' :: ' . ROOT_TITLE]);
+            $imageAll = getAllImage($imageIdFromGet);
+            addPopularity($imageIdFromGet);
+            $image['id'] = $imageIdFromGet;
+            $image['popularity'] = $imageAll[0]['popularity'];
+            $image['fullPath'] = $imageAll[0]['name'];
+            $image['title'] = $imageAll[0]['title'];
+            $image['alt'] = $imageAll[0]['alt'];
+            return render('image', ['image' => $image], ['title' =>  $image['title'] .' :: ' . ROOT_TITLE]);
     }
 
 

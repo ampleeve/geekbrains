@@ -1,4 +1,9 @@
 <?php
+
+function getAllImage($id){
+    return select("SELECT * FROM images WHERE id = '$id';");
+}
+
 function getFullPath($id){
     return select("SELECT name FROM images WHERE id = $id;")[0]['name'];
 }
@@ -22,10 +27,13 @@ function getAlt($id){
 function updateTitle($id, $title){
     return update("UPDATE images SET title = '$title'  WHERE id = '$id'");
 }
-
 function updateAlt($id, $alt){
     return update("UPDATE images SET alt = '$alt' WHERE id = '$id'");
 }
+function updateAltTitle($id, $alt, $title){
+    return update("UPDATE images SET alt = '$alt', title = '$title' WHERE id = '$id'");
+}
+
 
 function checkImage($id)
 {
