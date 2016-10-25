@@ -38,7 +38,7 @@ function renderPage(){
 }
 
 /**
- * @param $view Название вьюхи
+ * @param string $view Название вьюхи
  * @param array $variables Переменные для контента в зависимости от экшена
  * @param array $layoutVars Переменные окружения например title
  * @param string $layout - название основного шаблона страницы(типа футер например и меню, которые выводятся везде,

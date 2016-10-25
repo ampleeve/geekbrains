@@ -26,3 +26,16 @@ function updateTitle($id, $title){
 function updateAlt($id, $alt){
     return update("UPDATE images SET alt = '$alt' WHERE id = '$id'");
 }
+
+function checkImage($id)
+{
+
+    $result = select("SELECT `id` FROM `images` WHERE (`id`='$id')");
+    if (!$result){
+        return FALSE;
+    }
+    else
+    {
+        return TRUE;
+    }
+}

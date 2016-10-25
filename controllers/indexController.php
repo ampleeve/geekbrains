@@ -12,10 +12,11 @@ function actionIndex(){
     require_once (MODELS_DIR . '/' . 'images.php');
     if($_SERVER['REQUEST_METHOD']==='POST' && !empty($_FILES['image'])){
         $error = handleRequest($_FILES['image']);
+        if (!empty($error)){
+            echo $error;
+        }
     }
-    if (!empty($error)){
-        echo $error;
-    }
+
     $images = getAllImages();
     return render('index', ['images' => $images], ['title' => ROOT_TITLE]);
 
