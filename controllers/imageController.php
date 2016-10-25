@@ -31,7 +31,7 @@ function actionShowImage(){
             return render('image', ['image' => $image], ['title' =>  $image['title'] .' :: ' . ROOT_TITLE]);
     }
 
-    return '';
+    throwError("Невозможно отобразить изображение.");
 
 
 }

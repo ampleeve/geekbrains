@@ -13,7 +13,7 @@ function actionIndex(){
     if($_SERVER['REQUEST_METHOD']==='POST' && !empty($_FILES['image'])){
         $error = handleRequest($_FILES['image']);
         if (!empty($error)){
-            echo $error;
+            throwError($error);
         }
     }
 
