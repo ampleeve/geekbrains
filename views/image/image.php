@@ -15,7 +15,7 @@
         </div>
 
         <div>
-            <form action="/?controller=image&action=showImage&id=<?= $image['id'] ?>" method="POST"">
+            <form action="/?controller=image&action=showImage&id=<?= $image['id'] ?>" method="POST">
                 <label for="loadImage">Изменить title картинки:</label>
                 <input type="text" name="newTitle"/>
                 <label for="loadImage">Изменить Alt картинки:</label>
