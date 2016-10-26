@@ -15,7 +15,7 @@ function actionIndex(){
     require_once (MODELS_DIR . '/' . 'images.php');
     if($_SERVER['REQUEST_METHOD']==='POST'){
         $error = handleRequest($_FILES['image']);
-        if(!$error){
+        if($error){
             throwError($error);
         }
         header("Location: /?controller=index&action=index");
