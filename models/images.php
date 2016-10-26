@@ -28,7 +28,7 @@ function handleRequest($uploadedImage){
 
 function getExtensionByType($type){
 
-    echo $type;
+    //echo $type;
 
     switch ($type) {
 

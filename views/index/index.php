@@ -10,7 +10,7 @@
     <?php foreach ($images as $imageId): ?>
         <div>
             <a href = "/?controller=image&action=showImage&id=<?= $imageId['id'] ?>">
-                <img src = "i/min/<?= $imageId['name']; ?>">
+                <img width="50" border="1" src = "i/min/<?= $imageId['name']; ?>">
             </a>
         </div>
     <?php endforeach; ?>
