@@ -14,22 +14,16 @@ function checkImage($id)
     global $dbConn;
     $id = mysqli_real_escape_string($dbConn, $id);
     $result = select("SELECT `id` FROM `images` WHERE (`id`='$id')");
-    if (!$result){
-        return FALSE;
-    }
-    else
-    {
-        return TRUE;
-    }
+    return $result;
 }
 function validateForm($formData){
     if(!$formData['id']){
-        return FALSE;
+        return "Не передан ид";
     }
     if(!$formData['newTitle'] && !$formData['newAlt']){
-        return FALSE;
+        return "Не переданы тайтл и альт картинки";
     }
-    return TRUE;
+    return "";
 }
 function updateImage($correctFormData)
 {

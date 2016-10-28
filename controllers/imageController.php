@@ -7,7 +7,7 @@ function actionShowImage(){
     if($_SERVER['REQUEST_METHOD']==='POST') {
         $requestData = ['id' => $_POST['id'], 'newTitle' => $_POST['newTitle'], 'newAlt' => $_POST['newAlt']];
         $errors = validateForm($requestData);
-        if(!$errors){
+        if($errors){
             throwError($errors);
         }
         if(!updateImage($requestData)){
